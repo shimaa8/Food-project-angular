@@ -1,0 +1,22 @@
+<section id="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 ms-auto">
+                <div class="user-profile d-flex align-items-center" *ngIf="currentUser">
+                    <div class="user-avater mx-2">
+                        <img *ngIf="currentUser.imagePath" [src]="'https://upskilling-egypt.com/'+currentUser.imagePath"
+                            alt="">
+                        <img *ngIf="!currentUser.imagePath" src="../../../assets/images/kate.png" alt="">
+                    </div>
+                    <span>
+                        <span class="h6">
+                            {{currentUser.userName}}
+                        </span>
+                        <span class="d-block text-muted">{{currentUser.group.name}}</span>
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

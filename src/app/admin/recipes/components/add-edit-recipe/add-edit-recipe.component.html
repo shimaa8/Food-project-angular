@@ -1,0 +1,76 @@
+<section class="container">
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit(recipeForm)">
+    <div class="row card-auth shadow-sm">
+
+      <div class="col-md-10 mx-auto">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+          <input formControlName="name" type="text" class="form-control" placeholder="Recipe Name"
+            aria-label="Enter Your Email" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+          <input formControlName="price" type="number" class="form-control" placeholder="Price"
+            aria-label="Enter Your Email" aria-describedby="basic-addon1">
+        </div>
+
+        <div>
+
+          <label for="">Tag</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+
+            <select formControlName="tagId" class="form-select" aria-label="Default select example">
+              <option selected>All</option>
+              <option *ngFor="let item of tags" [ngValue]="item.id">{{item.name}}</option>
+
+            </select>
+          </div>
+
+        </div>
+        <div class="my-3">
+          <label for="">Category</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon11"><i class="fa-solid fa-lock"></i></span>
+
+            <select formControlName="categoriesIds" class="form-select" aria-label="Default select example">
+              <option selected>All</option>
+              <option *ngFor="let item of categories" [ngValue]="item.id">{{item.name}}</option>
+
+            </select>
+          </div>
+
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+          <textarea formControlName="description" type="text" class="form-control" placeholder="Description"
+            aria-label="Enter Your Email" aria-describedby="basic-addon1">
+          </textarea>
+        </div>
+        <div>
+          <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+            <ngx-dropzone-label *ngIf="!imgSrc">
+              <i class="fa-solid fa-arrow-up-from-bracket d-block"></i>
+              Drag & Drop or <span class="text-main">Choose a Item Image</span> to Upload
+
+            </ngx-dropzone-label>
+            <ngx-dropzone-label *ngIf="imgSrc">
+              <img [src]="imgSrc" class="w-25" alt="">
+            </ngx-dropzone-label>
+
+            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+              [removable]="true" (removed)="onRemove(f)">
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
+        <div>
+          <button type="button" class="outline-primary">cancel</button>
+          <button class="primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</section>

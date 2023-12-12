@@ -1,0 +1,40 @@
+<div class="auth-card p-5">
+  <h2 class="h4">Verify Your Account</h2>
+  <p>Please Enter Your Email And Check Your Inbox</p>
+  <form [formGroup]="verifyForm" (ngSubmit)="onSubmit(verifyForm)">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+      <input formControlName="email" type="text" class="form-control" placeholder="Enter Your Email"
+        aria-label="Enter Your Email" aria-describedby="basic-addon1">
+    </div>
+    <div *ngIf="verifyForm.get('email')?.errors && verifyForm.get('email')?.touched" class="alert alert-danger my-2">
+      <p *ngIf="verifyForm.get('email')?.errors?.['required']" class="mb-0">
+        Email Is required
+      </p>
+
+      <p *ngIf="verifyForm.get('email')?.errors?.['email']" class="mb-0">
+        Email not Valid</p>
+
+
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+      <input formControlName="code" type="text" class="form-control" placeholder="Enter Your Otp"
+        aria-describedby="basic-addon1">
+    </div>
+    <div *ngIf="verifyForm.get('code')?.errors && verifyForm.get('code')?.touched" class="alert alert-danger my-2">
+      <p *ngIf="verifyForm.get('code')?.errors?.['required']" class="mb-0">
+        code Is required
+      </p>
+
+
+
+
+    </div>
+    <div class="text-end">
+      <a (click)="onClose()" routerLink="/auth/resetPassword" class="text-second text-decoration-none">Have Code? </a>
+
+    </div>
+    <button [disabled]="verifyForm.invalid" class="btn bg-main text-white w-100">Send</button>
+  </form>
+</div>

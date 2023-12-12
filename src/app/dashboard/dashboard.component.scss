@@ -1,0 +1,17 @@
+.sideBar {
+    border-top-right-radius: 58px;
+}
+.item {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 5px 15px;
+    margin: 1rem 0px;
+    cursor: pointer;
+}
+.bg-active {
+    background-color: rgba(0, 146, 71, 0.1) !important;
+}
+.row > div{
+    transition: all 1s;
+}

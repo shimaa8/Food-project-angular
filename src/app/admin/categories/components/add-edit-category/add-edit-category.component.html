@@ -1,0 +1,16 @@
+<div class="auth-card p-5">
+  <h4 class="d-flex align-items-center justify-content-between">
+    <span> Add Category</span>
+
+
+    <span (click)="onClose()"><i class="fa-regular fa-circle-xmark text-danger"></i></span>
+  </h4>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-filter"></i></span>
+    <input [(ngModel)]="categoryName" type="text" class="form-control" placeholder="Category Name"
+      aria-label="Enter Your categoryName" aria-describedby="basic-addon1">
+  </div>
+
+  <button [mat-dialog-close]="categoryName" cdkFocusInitial class="btn bg-main text-white w-100">Send</button>
+
+</div>

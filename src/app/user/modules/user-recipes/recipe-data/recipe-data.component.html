@@ -1,0 +1,38 @@
+<section>
+  <div class="d-flex justify-content-between align-items-center m-2">
+    <h2>Recipe Data</h2>
+    <a (click)="onNoClick()">
+      <i class="fa-regular fa-xmark-circle mx-2 fa-xl "></i>
+
+    </a>
+  </div>
+  <div class="container">
+    <div class="row py-5">
+      <div class="col-10 mx-auto">
+
+        <div class="avater">
+
+          <img [src]="'https://upskilling-egypt.com/'+data.imagePath" class="w-100" alt="">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4>{{data.name}}</h4>
+      </div>
+      <div class="col-md-6">
+        <h4>{{data.price}}</h4>
+
+      </div>
+      <div class="col-md-12">
+        <h4>{{data.description}}</h4>
+
+      </div>
+      <div class="col-md-12 text-end">
+        <button [mat-dialog-close]="data.id" cdkFocusInitial class="btn btn-outline-danger">
+          <i class="fa-regular fa-heart mx-2"></i>
+          <span>Favorite</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+</section>
